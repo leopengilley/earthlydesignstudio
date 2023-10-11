@@ -16,7 +16,7 @@
           <li class="card">
             <div class="img">
               <a href="{% url 'home' %}">
-              <img src="{{picture.image}}" alt="img">
+              <img src="{{ picture.image.url }}" alt="img">
               </a>
             </div>
             <!-- <h2><a href="{% url 'home' %}" style="color:black">{{ picture.title }}</a></h2>
