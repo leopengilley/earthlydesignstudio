@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="row pt-5">
+  <div class="col-sm-1">
+    <div class="container"></div>
+  </div>
+ <div class="col-sm-10">
+  <br>
+  {% if gallery %}
+  <div class="wrapper">
+    <i id="left"><</i>
+        <ul class="carousel">
+          {% for picture in gallery %}
+          <li class="card">
+            <div class="img">
+              <a href="{% url 'home' %}">
+              <img src="{{picture.image}}" alt="img">
+              </a>
+            </div>
+            <h2><a href="{% url 'home' %}" style="color:black">{{ picture.title }}</a></h2>
+            <span>{{ picture.description }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+    <i id="right">></i>
+  </div>
+  {% else %}
+  <p>No pictures are available.</p>
+  {% endif %}
+</div>
+
+
+  <div class="col-sm-1">
+    <div class="container"></div>
+  </div>
+</div>
+{% endblock %}

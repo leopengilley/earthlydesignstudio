@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="cottage-container">
+  <img class="cottage-img" src="static/images/cottage.jpg" alt="cottage">
+</div>
+
+<!-- <div class="welcome">
+  <h1>Veronique Sellies Home</h1>
+  <p>
+    Welcome to my website, a website developed by my favourite son!
+    <em>Lionel Pengilley</em>!
+  </p>
+</div> -->
+
+{% for event in events %}
+  <div class="events">
+    <h2>{{event.title}}</h2>
+    <p>{{event.date}}</p>
+    <p>{{event.body}}</p>
+    {% with event.blogimage_set.all as images %}
+      {% if images %}
+        <div class="image-gallery">
+          {% for image in images %}
+            <img src="{{ image.image.url }}" alt="{{ event.title }} Image">
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+  </div>
+{% endfor %}
+
+
+{% endblock %}

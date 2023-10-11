@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div class="contact">
+
+  <h1>Contact me</h1>
+
+  <form action="/subject/" method="post">
+      {% csrf_token %}
+      {% for field in form %}
+          <div class="fieldWrapper">
+              {{ field.errors }}
+              {{ field }}
+          </div>
+      {% endfor %}
+      <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+</div>
+
+{% endblock %}
