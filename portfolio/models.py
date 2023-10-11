@@ -11,7 +11,7 @@ class BlogPost(models.Model):
         return self.title
 
 class Gallery(models.Model):
-    title = models.CharField(max_length = 50, blank=True)
+    title = models.CharField(max_length = 50)
     image = models.ImageField()
     description = models.CharField(max_length = 250, blank=True)
 
