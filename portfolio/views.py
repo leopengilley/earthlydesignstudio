@@ -2,13 +2,16 @@ from django.shortcuts import render
 from .models import BlogPost, Gallery, BlogImage
 from django.core.mail import BadHeaderError, send_mail
 from django.http import HttpResponse, HttpResponseRedirect
+from django.core.paginator import Paginator
 
 from .forms import ContactForm
 
 def home(request):
     events = BlogPost.objects.all()
+    paginator = Paginator(queryset, 4)
+    page_number = request.GET.get("page")
 
-    return render(request, 'index.html', {'events': events})
+    return render(request, 'index.html', {'page_obj': page_obj, 'events': events})
 
 def about_me(request):
     return render(request, 'about_me.html')
