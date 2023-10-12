@@ -12,7 +12,7 @@ class BlogPost(models.Model):
 
 class Gallery(models.Model):
     title = models.CharField(max_length = 50)
-    image = models.ImageField(upload_to='gallery_images/')
+    image = models.ImageField()
     description = models.CharField(max_length = 250, blank=True)
 
     def __str__(self):
@@ -21,4 +21,4 @@ class Gallery(models.Model):
 
 class BlogImage(models.Model):
     blogPost = models.ForeignKey('BlogPost', on_delete=models.CASCADE, blank=True, null=True)
-    image = models.ImageField(upload_to='blogPost_images/')
+    image = models.ImageField()

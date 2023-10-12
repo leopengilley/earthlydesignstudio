@@ -23,7 +23,7 @@
       {% if images %}
         <div class="image-gallery">
           {% for image in images %}
-            <img src="{{ image.image.url }}" alt="{{ event.title }} Image">
+            <img src="{{ image.image }}" alt="{{ event.title }} Image">
           {% endfor %}
         </div>
       {% endif %}
