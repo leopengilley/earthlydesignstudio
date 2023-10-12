@@ -8,10 +8,10 @@ from .forms import ContactForm
 
 def home(request):
     events = BlogPost.objects.all()
-    paginator = Paginator(queryset, 4)
+    paginator = Paginator(events, 4)
     page_number = request.GET.get("page")
 
-    return render(request, 'index.html', {'page_obj': page_obj, 'events': events})
+    return render(request, 'index.html', {'page_obj': page_obj})
 
 def about_me(request):
     return render(request, 'about_me.html')
