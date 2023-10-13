@@ -1,5 +1,7 @@
 // Image carousel home page Start
 
+console.log("hello?")
+
 const carousel = document.querySelector(".carousel");
 const firstCardWidth = carousel.querySelector(".card").offsetWidth;
 const arrowBtns = document.querySelectorAll(".wrapper i");
