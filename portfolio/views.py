@@ -8,6 +8,7 @@ from .forms import ContactForm
 
 def home(request):
     events = BlogPost.objects.all()
+    events = events.order_by('-date')
     paginator = Paginator(events, 2)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
