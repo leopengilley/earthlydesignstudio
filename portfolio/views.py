@@ -12,7 +12,7 @@ def home(request):
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
 
-    return render(request, 'index.html', {'page_obj': page_obj})
+    return render(request, 'index.html', {'page_obj': page_obj, 'paginator': paginator})
 
 def about_me(request):
     return render(request, 'about_me.html')
