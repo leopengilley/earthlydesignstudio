@@ -7,7 +7,7 @@ from django.core.paginator import Paginator
 from .forms import ContactForm
 
 def home(request):
-    events = BlogPost.objects.all().order_by('-date')
+    events = BlogPost.objects.all().order_by('date', 'id')
     paginator = Paginator(events, 2)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
