@@ -1,5 +1,26 @@
 header img {
-  height: 150px;
+  height: 180px;
+}
+
+.btn-group {
+  align-items: center;
+  width: 50px;
+  margin: 0 250px;
+}
+
+.btn-group-vertical > .btn, .btn-group > .btn {
+  position: relative;
+  flex: 1 1 auto;
+  background-color: white;
+  border-color: white;
+}
+
+button .dropdown-toggle {
+  color: white !important;
+}
+
+svg {
+  color: black !important;
 }
 
 .container {
@@ -29,18 +50,23 @@ header img {
 }
 
 .events {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   text-align: center;
-  align-items: center;
+  align-items: center; */
+
+  display: grid;
+  grid-template-columns: 1fr 2fr;
   margin: 100px 0;
   width: 80%;
-  border: 2px solid black;
-  border-radius: 10px;
+  /* border: 2px solid black;
+  border-radius: 10px; */
 }
 
 .image-gallery img {
   height: 350px;
+  border-radius: 10px;
+  border: 2px solid black;
 }
 
 .about_me {
@@ -171,3 +197,15 @@ font-size: 1.31rem;
 }
 
 /* Home page carousel End */
+
+
+@media (max-width: 428px) {
+  header img {
+    height: 100px;
+  }
+
+  .cottage-container img {
+    height: 200px;
+  }
+
+}

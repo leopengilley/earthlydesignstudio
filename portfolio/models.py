@@ -4,6 +4,7 @@ from django.urls import reverse
 class BlogPost(models.Model):
     title = models.CharField(max_length = 70)
     date = models.DateField(auto_now = True)
+    description = models.TextField(max_length = 150)
     body = models.TextField(max_length = 1000)
     images = models.ManyToManyField('BlogImage', blank=True)
 

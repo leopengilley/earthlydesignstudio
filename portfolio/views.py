@@ -7,12 +7,15 @@ from django.core.paginator import Paginator
 from .forms import ContactForm
 
 def home(request):
+    return render(request, 'index.html')
+
+def classes(request):
     events = BlogPost.objects.all().order_by('date', 'id')
     paginator = Paginator(events, 2)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
 
-    return render(request, 'index.html', {'page_obj': page_obj, 'paginator': paginator})
+    return render(request, 'classes.html', {'page_obj': page_obj, 'paginator': paginator})
 
 def about_me(request):
     return render(request, 'about_me.html')

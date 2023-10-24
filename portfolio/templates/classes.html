@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+{% for event in page_obj %}
+  <div class="events">
+    {% with event.blogimage_set.all as images %}
+      {% if images %}
+        <div class="image-gallery">
+          {% for image in images %}
+            <img src="{{ image.image.url }}" alt="{{ event.title }} Image">
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+    <div class="event-body">
+      <h2>{{event.title}}</h2>
+      <p>{{event.date}}</p>
+      <p>{{event.body}}</p>
+    </div>
+  </div>
+{% endfor %}
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    {% if page_obj.has_previous %}
+    <li class="page-item">
+      <a class="page-link" href="?page={{ page_obj.previous_page_number }} aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+        <span class="sr-only"></span>
+      </a>
+    </li>
+    {% endif %}
+
+    {% for page in  paginator.page_range %}
+      {% if page == page_obj.number %}
+          <li class="page-item active"><a class="page-link" href="#">{{ page }}</a></li>
+      {% else %}
+          <li class="page-item"><a class="page-link" href="?page={{ page }}">{{ page }}</a></li>
+      {% endif %}
+    {% endfor %}
+
+    {% if page_obj.has_next %}
+    <li class="page-item">
+      <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+        <span class="sr-only"></span>
+      </a>
+    </li>
+    {% endif %}
+  </ul>
+</nav>
+
+{% endblock %}
