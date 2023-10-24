@@ -64,9 +64,10 @@ svg {
 }
 
 .image-gallery img {
-  height: 350px;
-  border-radius: 10px;
-  border: 2px solid black;
+  width: 250px;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 20px;
 }
 
 .about_me {
